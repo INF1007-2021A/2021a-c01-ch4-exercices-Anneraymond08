@@ -4,27 +4,27 @@
 
 def is_even_len(string: str) -> bool:
     longueur = len(string)
-    chaine_pair = ((longueur % 2) == 0)
-    return chaine_pair
-    pass
+    return (longueur % 2) == 0
 
 
 def remove_third_char(string: str) -> str:
-    new_string = string.split(string[2])
-    return (''.join(new_string))
+    return string[:2]+string[3:]
 
 
 def replace_char(string: str, old_char: str, new_char: str) -> str:
-    liste = list(string)
-    x = string.find(old_char)
-    liste[x] = new_char
-    return ''.join(liste)
+    new_string = ""
+    for char in string:
+        if char == old_char:
+            new_string += new_char
+        else:
+            new_string += char
+    return new_string
 
 
 def get_number_of_char(string: str, char: str) -> int:
     quant = 0
-    for i in range(len(string)):
-        if string[i] == char:
+    for i in string:
+        if i == char:
             quant += 1
     return quant
 
